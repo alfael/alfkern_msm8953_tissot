@@ -14,7 +14,7 @@ config IOSCHED_NOOP
 
 config IOSCHED_DEADLINE
 	tristate "Deadline I/O scheduler"
-	default y
+	default n
 	---help---
 	  The deadline I/O scheduler is simple and compact. It will provide
 	  CSCAN service with FIFO expiration of requests, switching to
@@ -23,7 +23,7 @@ config IOSCHED_DEADLINE
 
 config IOSCHED_CFQ
 	tristate "CFQ I/O scheduler"
-	default y
+	default n
 	---help---
 	  The CFQ I/O scheduler tries to distribute bandwidth equally
 	  among all processes in the system. It should provide a fair
@@ -34,7 +34,7 @@ config IOSCHED_CFQ
 
 config IOSCHED_ANXIETY
 	tristate "Anxiety I/O scheduler"
-	default y
+	default n
 	---help---
 	  The Anxiety I/O scheduler prioritizes latency over everything
 		else. When a request comes in, it will use a lighweight
@@ -42,7 +42,7 @@ config IOSCHED_ANXIETY
 
 config IOSCHED_MAPLE
 	tristate "Maple I/O scheduler"
-	default y
+	default n
 
 config CFQ_GROUP_IOSCHED
 	bool "CFQ Group Scheduling support"
