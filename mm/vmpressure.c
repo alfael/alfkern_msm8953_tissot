@@ -340,6 +340,9 @@ static void vmpressure_global(gfp_t gfp, unsigned long scanned, bool critical,
 	if (critical)
 		scanned = calculate_vmpressure_win();
 
+	if (critical)
+		scanned = calculate_vmpressure_win();
+
 	if (scanned) {
 		spin_lock(&vmpr->sr_lock);
 		vmpr->scanned += scanned;
