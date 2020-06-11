@@ -214,5 +214,4 @@ static inline int arch_spin_is_contended(arch_spinlock_t *lock)
  */
 #define vcpu_is_preempted(cpu)	false
 
-
 #endif /* __ASM_SPINLOCK_H */

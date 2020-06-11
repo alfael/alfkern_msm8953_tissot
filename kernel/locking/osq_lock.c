@@ -131,7 +131,7 @@ bool osq_lock(struct optimistic_spin_queue *lock)
 	 */
 
 	/*
-	 * Step - A  -- stabilize @prev		 * Wait to acquire the lock or cancelation. Note that need_resched()
+	 * Wait to acquire the lock or cancelation. Note that need_resched()
 	 * will come with an IPI, which will wake smp_cond_load_relaxed() if it
 	 * is implemented with a monitor-wait. vcpu_is_preempted() relies on
 	 * polling, be careful.
@@ -139,10 +139,9 @@ bool osq_lock(struct optimistic_spin_queue *lock)
 	if (smp_cond_load_relaxed(&node->locked, VAL || need_resched() ||
 				  vcpu_is_preempted(node_cpu(node->prev))))
 		return true;
-
-	/* unqueue */
  	/*
- 	 * Step - A  -- stabilize @prev	 *
+ 	 * Step - A  -- stabilize @prev
+	 *
 	 * Undo our @prev->next assignment; this will make @prev's
 	 * unlock()/unqueue() wait for a next pointer since @lock points to us
 	 * (or later).
