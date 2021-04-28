@@ -49,3 +49,4 @@ generic-y += user.h
 generic-y += vga.h
 generic-y += xor.h
 
+generated-y += cpucaps.h

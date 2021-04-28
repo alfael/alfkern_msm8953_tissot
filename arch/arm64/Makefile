@@ -240,6 +240,9 @@ PHONY += vdso_install
 vdso_install:
 	$(Q)$(MAKE) $(build)=arch/arm64/kernel/vdso $@
 
+archprepare:
+	$(Q)$(MAKE) $(build)=arch/arm64/tools kapi
+
 # We use MRPROPER_FILES and CLEAN_FILES now
 archclean:
 	$(Q)$(MAKE) $(clean)=$(boot)
