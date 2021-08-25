@@ -643,6 +643,7 @@ static inline void throtl_trim_slice(struct throtl_grp *tg, bool rw)
 
 	if (!nr_slices)
 		return;
+
 	tmp = tg->bps[rw] * msecs_to_jiffies(throtl_slice) * nr_slices;
 	do_div(tmp, msecs_to_jiffies(1000));
 	bytes_trim = tmp;
