@@ -9,7 +9,7 @@ export CROSS_COMPILE_ARM32=arm-eabi-
 export ARCH=arm64
 export SUBARCH=arm64
 export KBUILD_CFLAGS="-Wno-maybe-uninitialized -Wno-memset-elt-size -Wno-duplicate-decl-specifier"
-DEFCONFIG_FILE=tissot_defconfig
+DEFCONFIG_FILE=alfkern_defconfig
 if [ ! -d "./output/" ]; then
         mkdir ./output/
 fi
