@@ -1,7 +1,7 @@
 #!/bin/bash
 cd $(dirname $0)
-export PATH="$HOME/toolchain/eva/bin:$HOME/toolchain/eva64/bin:$PATH"
-export LD_LIBRARY_PATH="$HOME/glibc-2.36/build/install/lib:$LD_LIBRARY_PATH"
+export PATH="$HOME/toolchain/test/eva/bin:$HOME/toolchain/test/eva64/bin:$PATH"
+#export LD_LIBRARY_PATH="$HOME/glibc-2.36/build/install/lib:$LD_LIBRARY_PATH"
 export KBUILD_BUILD_USER=alfael
 export KBUILD_BUILD_HOST=LI-DEV
 export CROSS_COMPILE=aarch64-elf-
@@ -21,7 +21,7 @@ make O=output -j4 2>&1 | tee build.log
 
 #Generation package anykernel
 PATH_OUTPUT=output/arch/arm64/boot
-PATH_KERN=$PATH_OUTPUT/Image.gz
+PATH_KERN=$PATH_OUTPUT/Image.gz-dtb
 PATH_QCOM=$PATH_OUTPUT/dts/qcom/
 PATH_PACKAGE=package
 PATH_OUTPUT_PACKAGE=~/kernel/output

@@ -21,7 +21,7 @@ make CC=clang O=output CC=clang AR=llvm-ar NM=llvm-nm OBJCOPY=llvm-objcopy OBJDU
 
 #Generation package anykernel
 PATH_OUTPUT=output/arch/arm64/boot
-PATH_KERN=$PATH_OUTPUT/Image.gz
+PATH_KERN=$PATH_OUTPUT/Image.gz-dtb
 PATH_QCOM=$PATH_OUTPUT/dts/qcom/
 PATH_PACKAGE=package
 PATH_OUTPUT_PACKAGE=~/kernel/output
