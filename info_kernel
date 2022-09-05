@@ -1,0 +1,52 @@
+**********************************************************
+==========================INFO===========================
+*********************************************************
+    - KERNEL NAME -> [ALFKERN]
+    - LINUX KERNEL VERSION -> [4.9.326]
+    - LAST CAF TAG ANDROID 12 -> [LA.UM.10.6.2.r1-02500-89xx.0]
+    - VERSION CODENAME -> [1.0]
+    - LAST TOOLCHAIN VERSION AT RELEASE KERNEL DATE -> [vortex (clang v14)]
+    - TARGET ANDROID VERSION -> [12]
+    - LAST VERSION DATE -> [2022-09-05]
+    - Main purpose of this kernel is to be up to the
+      latest tag of linux 4.9 with the best delivery of
+      performance and battery to use as is.
+
+*********************************************************
+=========================FEATURE=========================
+*********************************************************
+    - DEFAULT GOVERNOR -> [SCHEDUTIL at RT priority]
+    - DEFAULT I/O SCHEDULER -> [MAPLE tweaked]
+    - DEFAULT TCP CONGESTION CONTROL -> [WESTWOOD+ with backport optimization]
+    - TOOLCHAIN OPTIMIZATION -> [MCPU/MTUNE/O3/FUNSAFE-MATH-OPTIMIZATIONS]
+    - MANY DEBUGGER/STATS DISABLED
+    - FIX DIRECT REFERENCE TO HZ
+    - CONFIG_HZ -> 1000HZ
+    - ARM64 OPTIMIZATIONS
+    - MSM8953 OPTIMIZATIONS
+    - RAPID GC F2FS by arter97
+    - F2FS OPTIMIZATIONS
+    - EXT4 OPTIMIZATIONS
+    - WIREGUARD V1.0.20211208
+    - NETWORK IMPROVEMENT
+    - GPU IMPROVEMENT
+    - SOUND QUALITY IMPROVEMENT
+    - MEMORY MANAGEMENT IMPROVEMENT
+    - I/O IMPROVEMENT
+    - BATTERY IMPROVEMENT
+    - BOEFFLA WAKELOCK BLOCKER
+    - HIGH PRIORITY WORKQUEUE
+    - POWER EFFICIENT WORKQUEUE
+    - SCHED_RR IN PLACE OF SCHED_FIFO -> [BETTER LATENCY]
+    - CPU SCHEDULER (CFS) TWEAKED
+    - DTS EAGLE
+    - LASTER K'S DRIVER
+    - DYNAMIC FSYNC V2 -> ENABLED BY DEFAULT
+    - ADRENOBOOST -> ENABLED BY DEFAULT
+    - PRLMK by DARKHZ replacement of LOW MEMORY KILLER
+    - SCREEN COLOR CONTROL
+    - SOUND CONTROL
+    - VIBRATION CONTROL
+    - FAST CHARGE USB MODE
+    - BACKPORT OPTIMIZATION FROM UPSTREAM KERNEL VERSION 
+    - ZRAM WITH LZ4 COMPRESSION
