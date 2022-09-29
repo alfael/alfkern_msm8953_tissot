@@ -32,7 +32,7 @@ static u64 cfq_slice_async = 50;
 static const int cfq_slice_async_rq = 2;
 static u64 cfq_slice_idle = 0;
 static u64 cfq_group_idle = 0;
-static const u64 cfq_target_latency = (u64)NSEC_PER_SEC * 3/10; /* 300 ms */
+static const u64 cfq_target_latency = 300; /* 300 ms */
 static const int cfq_hist_divisor = 4;
 
 /*
