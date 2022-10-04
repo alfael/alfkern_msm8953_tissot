@@ -535,11 +535,14 @@ endif
 
 ifdef CONFIG_POLLY_CLANG
 KBUILD_CFLAGS	+= -mllvm -polly \
-		   -mllvm -polly-ast-use-context \
-		   -mllvm -polly-invariant-load-hoisting \
-		   -mllvm -polly-opt-fusion=max \
 		   -mllvm -polly-run-inliner \
-		   -mllvm -polly-vectorizer=stripmine
+		   -mllvm -polly-reschedule=1 \
+		   -mllvm -polly-loopfusion-greedy=1 \
+		   -mllvm -polly-postopts=1 \
+		   -mllvm -polly-ast-use-context \
+		   -mllvm -polly-detect-keep-going \
+		   -mllvm -polly-vectorizer=stripmine \
+		   -mllvm -polly-invariant-load-hoisting
 # Polly may optimise loops with dead paths beyond what the linker
 # can understand. This may negate the effect of the linker's DCE
 # so we tell Polly to perform proven DCE on the loops it optimises
