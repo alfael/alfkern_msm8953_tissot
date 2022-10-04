@@ -303,8 +303,14 @@ CONFIG_SHELL := $(shell if [ -x "$$BASH" ]; then echo $$BASH; \
 
 HOSTCC       = gcc
 HOSTCXX      = g++
+ifeq ($(CONFIG_ARCH_MSM8953), y)
+HOSTCFLAGS   := -Wall -Wmissing-prototypes -Wstrict-prototypes -O3 -fomit-frame-pointer -std=gnu89 -march=armv8-a+crypto+crc -mtune=cortex-a53 -mcpu=cortex-a53+crypto+crc
+HOSTCXXFLAGS = -O3 -march=armv8-a+crypto+crc -mtune=cortex-a53 -mcpu=cortex-a53+crypto+crc
+HOSTAFLAGS = -O3 -march=armv8-a+crypto+crc -mtune=cortex-a53 -mcpu=cortex-a53+crypto+crc
+else
 HOSTCFLAGS   := -Wall -Wmissing-prototypes -Wstrict-prototypes -O3 -fomit-frame-pointer -std=gnu89 -pipe
 HOSTCXXFLAGS = -O3
+endif
 ifeq ($(shell $(HOSTCC) -v 2>&1 | grep -c "clang version"), 1)
 HOSTCFLAGS  += -Wno-unused-value -Wno-unused-parameter \
 		-Wno-missing-field-initializers
@@ -758,10 +764,15 @@ KBUILD_CFLAGS   += -O3
 endif
 
 ifeq ($(cc-name),clang)
-KBUILD_CFLAGS	+= -funsafe-math-optimizations -mfloat-abi=hard -mcpu=cortex-a53 -mtune=cortex-a53 -mfpu=crypto-neon-fp-armv8
+KBUILD_CFLAGS	+= -funsafe-math-optimizations -mfloat-abi=hard -mfpu=crypto-neon-fp-armv8
 else
-KBUILD_CFLAGS	+= -funsafe-math-optimizations -mcpu=cortex-a53 -mtune=cortex-a53
+KBUILD_CFLAGS	+= -funsafe-math-optimizations
 endif
+
+ifeq ($(CONFIG_ARCH_MSM8953), y)
+KBUILD_CFLAGS	+= -march=armv8-a+crypto+crc -mtune=cortex-a53 -mcpu=cortex-a53+crypto+crc
+endif
+
 
 ifdef CONFIG_CC_WERROR
 KBUILD_CFLAGS	+= -Werror
