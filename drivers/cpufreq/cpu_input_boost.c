@@ -296,21 +296,27 @@ static int cpu_notifier_cb(struct notifier_block *nb, unsigned long action,
 	/* Boost CPU to max frequency on wake, regardless of screen state */
 	if (test_bit(WAKE_BOOST, &b->state)) {
 		policy->min = get_max_boost_freq(policy);
+#ifdef CONFIG_DYNAMIC_STUNE_BOOST
 		update_stune_boost(b, stune_boost);
+#endif
 		return NOTIFY_OK;
 	}
 
 	/* Unboost when the screen is off */
 	if (test_bit(SCREEN_OFF, &b->state)) {
 		policy->min = get_min_freq(policy);
+#ifdef CONFIG_DYNAMIC_STUNE_BOOST
 		clear_stune_boost(b);
+#endif
 		return NOTIFY_OK;
 	}
 
 	/* Boost CPU to max frequency for max boost */
 	if (test_bit(MAX_BOOST, &b->state)) {
 		policy->min = get_max_boost_freq(policy);
+#ifdef CONFIG_DYNAMIC_STUNE_BOOST
 		update_stune_boost(b, stune_boost);
+#endif
 		return NOTIFY_OK;
 	}
 
@@ -320,10 +326,14 @@ static int cpu_notifier_cb(struct notifier_block *nb, unsigned long action,
 	 */
 	if (test_bit(INPUT_BOOST, &b->state)) {
 		policy->min = get_input_boost_freq(policy);
+#ifdef CONFIG_DYNAMIC_STUNE_BOOST
 		update_stune_boost(b, stune_boost);
+#endif
 	} else {
 		policy->min = get_min_freq(policy);
+#ifdef CONFIG_DYNAMIC_STUNE_BOOST
 		clear_stune_boost(b);
+#endif
 	}
 
 	return NOTIFY_OK;
