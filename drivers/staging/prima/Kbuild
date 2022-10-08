@@ -20,10 +20,7 @@ CONFIG_PRIMA_WLAN_BTAMP := n
 CONFIG_PRIMA_WLAN_LFR := y
 
 # Flag to enable SAE
-CONFIG_WLAN_FEATURE_SAE := y
-
-# Flag to enable SW PTA
-CONFIG_WLAN_FEATURE_SW_PTA := y
+CONFIG_WLAN_FEATURE_SAE := n
 
 # Flag to enable OWE
 CONFIG_WLAN_AKM_SUITE_OWE := y
@@ -85,7 +82,7 @@ BUILD_DEBUG_VERSION := 0
 BUILD_DIAG_VERSION := 1
 
 #Do we panic on bug?  default is to warn
-PANIC_ON_BUG := 1
+PANIC_ON_BUG := 0
 
 #Re-enable wifi on WDI timeout
 RE_ENABLE_WIFI_ON_WDI_TIMEOUT := 0
@@ -701,10 +698,6 @@ ifeq ($(CONFIG_WLAN_FEATURE_SAE),y)
 CDEFINES += -DWLAN_FEATURE_SAE
 endif
 
-ifeq ($(CONFIG_WLAN_FEATURE_SW_PTA),y)
-CDEFINES += -DFEATURE_WLAN_SW_PTA
-endif
-
 ifeq ($(CONFIG_WLAN_AKM_SUITE_OWE),y)
 CDEFINES += -DWLAN_AKM_SUITE_OWE
 endif
@@ -782,12 +775,7 @@ EXTRA_CFLAGS += $(call cc-disable-warning, maybe-uninitialized)
 
 # Silence Clang warning
 EXTRA_CFLAGS += $(call cc-disable-warning, enum-conversion)
-
-# Silence Clang warning
-ifeq ($(cc-name),clang)
-EXTRA_CFLAGS += $(call cc-option, -Wframe-larger-than=2048)
-EXTRA_CFLAGS += -Wno-enum-conversion
-endif
+EXTRA_CFLAGS += $(call cc-disable-warning, void-pointer-to-enum-cast)
 
 ifeq ($(CONFIG_WLAN_OFFLOAD_PACKETS),y)
 CDEFINES += -DWLAN_FEATURE_OFFLOAD_PACKETS
