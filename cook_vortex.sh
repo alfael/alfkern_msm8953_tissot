@@ -17,7 +17,7 @@ fi
 make CC=clang O=output clean
 make CC=clang O=output mrproper
 make CC=clang O=output $DEFCONFIG_FILE
-make CC=clang O=output CC=clang AR=llvm-ar NM=llvm-nm OBJCOPY=llvm-objcopy OBJDUMP=llvm-objdump STRIP=llvm-strip  -j4 2>&1 | tee build.log
+make CC=clang O=output CC=clang AS=llvm-as AR=llvm-ar NM=llvm-nm OBJCOPY=llvm-objcopy OBJDUMP=llvm-objdump STRIP=llvm-strip  -j4 2>&1 | tee build.log
 
 #Generation package anykernel
 PATH_OUTPUT=output/arch/arm64/boot
