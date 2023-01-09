@@ -153,10 +153,6 @@ KBUILD_AFLAGS	+= $(arch-y) $(tune-y)
 
 CHECKFLAGS	+= -D__aarch64__
 
-ifeq ($(CONFIG_ARCH_MSM8953), y)
-KBUILD_CFLAGS	+= -mcpu=cortex-a53
-endif
-
 ifeq ($(CONFIG_ARM64_MODULE_CMODEL_LARGE), y)
 KBUILD_CFLAGS_MODULE	+= -mcmodel=large
 ifeq ($(CONFIG_LTO_CLANG), y)
