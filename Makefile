@@ -316,7 +316,7 @@ HOSTCXXFLAGS = -O3 -march=armv8-a+crypto+crc -mtune=cortex-a53 -mcpu=cortex-a53+
 HOSTAFLAGS = -O3 -march=armv8-a+crypto+crc -mtune=cortex-a53 -mcpu=cortex-a53+crypto+crc
 else
 HOSTCFLAGS   := -Wall -Wmissing-prototypes -Wstrict-prototypes -O3 -fomit-frame-pointer -std=gnu89 \
-				-pipe -Wno-deprecated-declarations
+			 -Wno-deprecated-declarations
 HOSTCXXFLAGS = -O3
 endif
 ifeq ($(shell $(HOSTCC) -v 2>&1 | grep -c "clang version"), 1)
@@ -418,7 +418,7 @@ LINUXINCLUDE    := \
 LINUXINCLUDE	+= $(filter-out $(LINUXINCLUDE),$(USERINCLUDE))
 
 KBUILD_AFLAGS   := -D__ASSEMBLY__
-KBUILD_CFLAGS   := -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs -pipe \
+KBUILD_CFLAGS   := -Wall -Wundef -Wstrict-prototypes -Wno-trigraphs \
 		   -fno-strict-aliasing -fno-common -fshort-wchar \
 		   -Werror-implicit-function-declaration \
 		   -Wno-format-security \
@@ -855,12 +855,6 @@ ifdef CONFIG_CC_OPTIMIZE_FOR_SIZE
 KBUILD_CFLAGS   += -Os
 else
 KBUILD_CFLAGS   += -O3
-endif
-
-ifeq ($(cc-name),clang)
-KBUILD_CFLAGS	+= -funsafe-math-optimizations -mfloat-abi=hard -mfpu=crypto-neon-fp-armv8
-else
-KBUILD_CFLAGS	+= -funsafe-math-optimizations
 endif
 
 ifeq ($(CONFIG_ARCH_MSM8953), y)
