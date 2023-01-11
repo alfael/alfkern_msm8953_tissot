@@ -56,4 +56,4 @@
     - POWER SUSPEND -> HYBRID ENABLED BY DEFAULT
     - FAST CHARGE USB -> ENABLED BY DEFAULT
     - BACKPORT OPTIMIZATION FROM UPSTREAM KERNEL VERSION 
-    - ZRAM WITH ZSTD COMPRESSION -> (LZ4/LZO/ZSTD AVAILABLE ALGO)
+    - ZRAM WITH ZSTD COMPRESSION (WARNING because if the rom has already defined the ZRAM block, to modify the algorithm used, please modify a file which is possibly in this location "/system/vendor/etc/init/hw/", for my case it is is about the file "init.qcom.rc")
