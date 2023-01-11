@@ -2,12 +2,12 @@
 ==========================INFO===========================
 *********************************************************
     - KERNEL NAME -> [ALFKERN]
-    - LINUX KERNEL VERSION -> [4.9.335]
+    - LINUX KERNEL VERSION -> [4.9.337]
     - LAST CAF TAG ANDROID 12 -> [LA.UM.10.6.2.r1-02500-89xx.0]
-    - VERSION CODENAME -> [6.0]
-    - LAST TOOLCHAIN VERSION AT RELEASE KERNEL DATE -> [vortex (clang v14)]
+    - VERSION CODENAME -> [7.0]
+    - LAST TOOLCHAIN VERSION AT RELEASE KERNEL DATE -> [TRB (clang v16)]
     - TARGET ANDROID VERSION -> [12]
-    - LAST VERSION DATE -> [2022-12-12]
+    - LAST VERSION DATE -> [2023-01-11]
     - Main purpose of this kernel is to be up to the
       latest tag of linux 4.9 with the best delivery of
       performance and battery to use as is.
@@ -15,13 +15,15 @@
 *********************************************************
 =========================FEATURE=========================
 *********************************************************
-    - DEFAULT GOVERNOR -> [SCHEDUTIL at RT priority]
+    - DEFAULT GOVERNOR -> [SCHEDUTIL]
     - DEFAULT I/O SCHEDULER -> [ANXIETY]
     - DEFAULT TCP CONGESTION CONTROL -> [BBR]
-    - TOOLCHAIN OPTIMIZATION -> [MCPU/MTUNE/O3/POLLY/FUNSAFE-MATH-OPTIMIZATIONS]
+    - TOOLCHAIN OPTIMIZATION -> [O3/POLLY/ARMV8-A/CORTEX-A53/CRC/CRYPTO]
+    - LAST WIFI CAF DRIVER LA.UM.10.6.2.r1-02500-89xx.0
+    - CLEAN USELESS ARM64_ERRATUM
     - MANY DEBUGGER/STATS DISABLED
     - FIX DIRECT REFERENCE TO HZ
-    - CONFIG_HZ -> 1000HZ
+    - CONFIG_HZ -> 300HZ
     - ARM64 OPTIMIZATIONS
     - MSM8953 OPTIMIZATIONS
     - RAPID GC F2FS by arter97
@@ -42,7 +44,7 @@
     - SCHED_RR IN PLACE OF SCHED_FIFO -> [BETTER LATENCY]
     - CPU SCHEDULER (CFS) TWEAKED
     - DTS EAGLE
-    - FRANDOM DRIVER
+    - FRANDOM DRIVER as entropy generator
     - LASTER K'S AUDIO DRIVER
     - DYNAMIC FSYNC V2 -> ENABLED BY DEFAULT
     - ADRENOBOOST -> ENABLED BY DEFAULT
@@ -50,8 +52,8 @@
     - SCREEN COLOR CONTROL
     - SOUND CONTROL
     - VIBRATION CONTROL
-    - DROP CACHE when screen off
-    - POWER SUSPEND with HYBRID mode enabled by default
-    - FAST CHARGE USB MODE
+    - DROP CACHE -> AUTOMATIC when screen off
+    - POWER SUSPEND -> HYBRID ENABLED BY DEFAULT
+    - FAST CHARGE USB -> ENABLED BY DEFAULT
     - BACKPORT OPTIMIZATION FROM UPSTREAM KERNEL VERSION 
-    - ZRAM WITH LZ4 COMPRESSION
+    - ZRAM WITH ZSTD COMPRESSION -> (LZ4/LZO/ZSTD AVAILABLE ALGO)
