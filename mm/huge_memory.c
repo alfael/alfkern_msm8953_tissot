@@ -1892,13 +1892,13 @@ static void unmap_page(struct page *page)
 		ttu_flags |= TTU_MIGRATION;
 
 	/* We only need TTU_SPLIT_HUGE_PMD once */
-	try_to_unmap(page, ttu_flags | TTU_SPLIT_HUGE_PMD);
+	try_to_unmap(page, ttu_flags | TTU_SPLIT_HUGE_PMD, NULL);
 	for (i = 1; i < HPAGE_PMD_NR; i++) {
 		/* Cut short if the page is unmapped */
 		if (page_count(page) == 1)
 			return;
 
-		try_to_unmap(page + i, ttu_flags);
+		try_to_unmap(page + i, ttu_flags, NULL);
 	}
 
 	VM_WARN_ON_ONCE_PAGE(page_mapped(page), page);
