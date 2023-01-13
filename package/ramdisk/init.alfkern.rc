@@ -23,7 +23,6 @@ on property:sys.boot_completed=1
     write /sys/block/mmcblk0/queue/iosched/slice_sync 60
     write /sys/block/mmcblk0/queue/iosched/fifo_expire_async 80
     write /sys/block/mmcblk0/queue/iosched/fifo_expire_sync 330
-    write /sys/block/mmcblk0/queue/iosched/nr_request 64
     write /sys/block/mmcblk0/queue/read_ahead_kb 512
     write /sys/block/mmcblk0/queue/nr_requests 64
 
@@ -34,7 +33,6 @@ on property:sys.boot_completed=1
     write /sys/block/mmcblk1/queue/iosched/slice_sync 60
     write /sys/block/mmcblk1/queue/iosched/fifo_expire_async 80
     write /sys/block/mmcblk1/queue/iosched/fifo_expire_sync 330
-    write /sys/block/mmcblk1/queue/iosched/nr_request 64
     write /sys/block/mmcblk1/queue/read_ahead_kb 512
     write /sys/block/mmcblk1/queue/nr_requests 64
 
