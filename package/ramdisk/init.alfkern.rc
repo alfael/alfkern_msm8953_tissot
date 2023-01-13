@@ -1,7 +1,41 @@
-on post-fs-data
+on init
     #Zram configs
     setprop ro.vendor.qti.config.zram true
     write /proc/sys/vm/page-cluster 0
     write /sys/block/zram0/comp_algorithm zstd
     write /sys/block/zram0/disksize 1147483648
+
+on late-fs
+    write /sys/block/sda/queue/scheduler noop
+    write /sys/block/sda/queue/read_ahead_kb 2048
+    write /sys/block/sda/queue/nr_requests 256
+
+on post-fs
+    exec u:r:init:s0 -- /system/bin/mkswap /dev/block/zram0
+    exec u:r:init:s0 -- /system/bin/swapon /dev/block/zram0
+
+on property:sys.boot_completed=1
+    #CFQ ENSURE VALUES
+    write /sys/block/mmcblk0/queue/iosched/rq_affinity 2
+    write /sys/block/mmcblk0/queue/iosched/quantum 4
+    write /sys/block/mmcblk0/queue/iosched/target_latency 300
+    write /sys/block/mmcblk0/queue/iosched/slice_async 50
+    write /sys/block/mmcblk0/queue/iosched/slice_sync 60
+    write /sys/block/mmcblk0/queue/iosched/fifo_expire_async 80
+    write /sys/block/mmcblk0/queue/iosched/fifo_expire_sync 330
+    write /sys/block/mmcblk0/queue/iosched/nr_request 64
+    write /sys/block/mmcblk0/queue/read_ahead_kb 512
+    write /sys/block/mmcblk0/queue/nr_requests 64
+
+    write /sys/block/mmcblk1/queue/iosched/rq_affinity 2
+    write /sys/block/mmcblk1/queue/iosched/quantum 4
+    write /sys/block/mmcblk1/queue/iosched/target_latency 300
+    write /sys/block/mmcblk1/queue/iosched/slice_async 50
+    write /sys/block/mmcblk1/queue/iosched/slice_sync 60
+    write /sys/block/mmcblk1/queue/iosched/fifo_expire_async 80
+    write /sys/block/mmcblk1/queue/iosched/fifo_expire_sync 330
+    write /sys/block/mmcblk1/queue/iosched/nr_request 64
+    write /sys/block/mmcblk1/queue/read_ahead_kb 512
+    write /sys/block/mmcblk1/queue/nr_requests 64
+
 
