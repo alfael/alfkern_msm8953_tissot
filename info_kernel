@@ -4,10 +4,10 @@
     - KERNEL NAME -> [ALFKERN]
     - LINUX KERNEL VERSION -> [4.9.337]
     - LAST CAF TAG ANDROID 12 -> [LA.UM.10.6.2.r1-02500-89xx.0]
-    - VERSION CODENAME -> [7.0]
+    - VERSION CODENAME -> [8.0]
     - LAST TOOLCHAIN VERSION AT RELEASE KERNEL DATE -> [TRB (clang v16)]
     - TARGET ANDROID VERSION -> [12]
-    - LAST VERSION DATE -> [2023-01-11]
+    - LAST VERSION DATE -> [2023-01-16]
     - Main purpose of this kernel is to be up to the
       latest tag of linux 4.9 with the best delivery of
       performance and battery to use as is.
@@ -15,6 +15,8 @@
 *********************************************************
 =========================FEATURE=========================
 *********************************************************
+    - OC FROM LOKUM KERNEL -> CPU: [MIN]652Mhz [MAX]3150Mhz
+                           -> GPU: [MIN]19Mhz [MAX]850Mhz
     - DEFAULT GOVERNOR -> [SCHEDUTIL]
     - DEFAULT I/O SCHEDULER -> [ANXIETY]
     - DEFAULT TCP CONGESTION CONTROL -> [BBR]
@@ -48,6 +50,7 @@
     - LASTER K'S AUDIO DRIVER
     - DYNAMIC FSYNC V2 -> ENABLED BY DEFAULT
     - ADRENOBOOST -> ENABLED BY DEFAULT
+    - ADRENOIDLER -> ENABLED BY DEFAULT
     - PRLMK by DARKHZ replacement of LOW MEMORY KILLER
     - SCREEN COLOR CONTROL
     - SOUND CONTROL
