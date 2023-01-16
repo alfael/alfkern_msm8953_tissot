@@ -8,6 +8,9 @@
     - LAST TOOLCHAIN VERSION AT RELEASE KERNEL DATE -> [TRB (clang v16)]
     - TARGET ANDROID VERSION -> [12]
     - LAST VERSION DATE -> [2023-01-16]
+    - NOTE: application like FDE.AI/LSPEED/NFS INJECTOR are not blocked but please
+      don't use it, best settings are already applied in the kernel for optimal operation
+    - TESTED ON ROM: Lineage OS 19.1(2023.01.10)
     - Main purpose of this kernel is to be up to the
       latest tag of linux 4.9 with the best delivery of
       performance and battery to use as is.
