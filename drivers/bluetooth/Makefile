@@ -1,3 +1,4 @@
+ccflags-y += -Ofast
 #
 # Makefile for the Linux Bluetooth HCI device drivers.
 #

@@ -1,3 +1,4 @@
+ccflags-y += -Ofast
 #
 # Makefile for kernel slimbus framework.
 #
