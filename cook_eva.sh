@@ -1,6 +1,6 @@
 #!/bin/bash
 cd $(dirname $0)
-export PATH="$HOME/toolchain/test/eva/bin:$HOME/toolchain/test/eva64/bin:$PATH"
+export PATH="$HOME/toolchain/eva/bin:$HOME/toolchain/eva64/bin:$PATH"
 #export LD_LIBRARY_PATH="$HOME/glibc-2.36/build/install/lib:$LD_LIBRARY_PATH"
 export KBUILD_BUILD_USER=alfael
 export KBUILD_BUILD_HOST=LI-DEV
@@ -17,7 +17,7 @@ fi
 make O=output clean
 make O=output mrproper
 make O=output $DEFCONFIG_FILE
-make O=output -j4 2>&1 | tee build.log
+make O=output  LD=ld.lld AR=llvm-ar NM=llvm-nm OBJSIZE=llvm-size OBJCOPY=llvm-objcopy OBJDUMP=llvm-objdump STRIP=llvm-strip -j$(nproc) 2>&1 | tee build.log
 
 #Generation package anykernel
 PATH_OUTPUT=output/arch/arm64/boot
