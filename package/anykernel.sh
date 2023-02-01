@@ -33,13 +33,4 @@ ramdisk_compression=auto;
 ## AnyKernel install
 dump_boot;
 
-insert_line init.recovery.qcom.rc "import /init.alfkern.rc" after "import /init.recovery.qcom.usb.rc" "import /init.alfkern.rc";
-
-# fstab.tuna
-backup_file fstab.tuna;
-patch_fstab fstab.tuna /system ext4 options "noatime,barrier=1" "noatime,nodiratime,barrier=0";
-patch_fstab fstab.tuna /cache ext4 options "barrier=1" "barrier=0,nomblk_io_submit";
-patch_fstab fstab.tuna /data ext4 options "data=ordered" "nomblk_io_submit,data=writeback";
-append_file fstab.tuna "usbdisk" fstab;
-
 write_boot;
