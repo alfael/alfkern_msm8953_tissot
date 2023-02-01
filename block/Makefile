@@ -1,4 +1,3 @@
-ccflags-y += -Ofast
 #
 # Makefile for the kernel block layer
 #

@@ -1,4 +1,3 @@
-ccflags-y += -Ofast
 # Makefile for staging directory
 
 obj-y				+= media/
