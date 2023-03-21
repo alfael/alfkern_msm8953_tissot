@@ -569,6 +569,7 @@ endif
 
 
 ifdef CONFIG_POLLY_CLANG
+ifeq ($(cc-name),clang)
 KBUILD_CFLAGS	+= -mllvm -polly \
 		   -mllvm -polly-run-inliner \
 		   -mllvm -polly-reschedule=1 \
@@ -584,6 +585,7 @@ KBUILD_CFLAGS	+= -mllvm -polly \
 # in order to preserve the overall effect of the linker's DCE.
 ifdef CONFIG_LD_DEAD_CODE_DATA_ELIMINATION
 KBUILD_CFLAGS	+= -mllvm -polly-run-dce
+endif
 endif
 endif
 
