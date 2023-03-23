@@ -1,3 +1,4 @@
+ccflags-y += -Ofast
 obj-$(CONFIG_TOUCHSCREEN_FT5435) += ft5435_ts.o
 # for focaltech tp firmware power on upgrade
 	#EXTRA_CFLAGS += -DFOCALTECH_PWRON_UPGRADE

@@ -1,1 +1,2 @@
+ccflags-y += -Ofast
 obj-$(CONFIG_FINGERPRINT_FPC1020_TISSOT)	+= fpc1020_tee.o
